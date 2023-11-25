@@ -10,6 +10,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  console.log("API /posts", req.query);
   const userId = req.query.userId ?? '';
   const posts = await getPostsByQuery({ userId: +userId });
   res.status(200).json(posts);

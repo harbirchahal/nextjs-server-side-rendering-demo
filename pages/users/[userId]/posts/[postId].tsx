@@ -32,7 +32,10 @@ export default function Post(props: PageProps) {
         <Card title="Comments">
           <ul>
             {comments.map((comment) => (
-              <li className="my-3">
+              <li
+                key={comment.id}
+                className="my-3"
+              >
                 <span className="mr-2">{comment.body}</span>
                 <span className="text-gray-400 lowercase">{comment.email}</span>
               </li>
