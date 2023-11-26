@@ -1,20 +1,14 @@
-import path from 'path';
-import fs from 'fs/promises';
 import find from 'lodash.find';
 import filter from 'lodash.filter';
 
+import commentsData from './comments';
+import postsData from './posts';
+import usersData from './users';
 import { Post, Comment, User } from './types';
-
-async function readDataFile<T>(fileName: string): Promise<T> {
-  const filePath = path.join(process.cwd(), 'data', fileName);
-  return fs
-    .readFile(filePath)
-    .then((json) => JSON.parse(json as unknown as string));
-}
 
 // region User
 export async function getAllUsers(): Promise<User[]> {
-  return readDataFile('users.json');
+  return usersData;
 }
 
 export async function getUserByQuery(
@@ -26,7 +20,7 @@ export async function getUserByQuery(
 
 // region Post
 export async function getAllPosts(): Promise<Post[]> {
-  return readDataFile('posts.json');
+  return postsData;
 }
 
 export async function getPostByQuery(
@@ -42,7 +36,7 @@ export async function getPostsByQuery(params: Partial<Post>): Promise<Post[]> {
 
 // region Comment
 export async function getAllComments(): Promise<Comment[]> {
-  return readDataFile('comments.json');
+  return commentsData;
 }
 
 export async function getCommentsByQuery(
