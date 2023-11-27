@@ -6,6 +6,11 @@ export default function Document() {
       lang="en"
       data-theme="winter"
     >
+      <title>NextJS SSG and SSR Demo</title>
+      <meta
+        name="description"
+        content="NextJS server side rendering demo"
+      />
       <Head />
       <body>
         <Main />
